@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>New User Registration</h1>
+    <form action="#" data-th-action="@{/register}" data-th-object="${user}" method="post">
+        <p>
+            Name:
+            <input type="text" data-th-field="*{name}"/>
+            <br>
+            <span class="error" data-th-if="${fields.hasErrors('name')}" data-th-errors="*{name}"></span>
+        </p>
+        <br>
+        <p>
+            Email: 
+            <input type="text" data-th-field="*{email}"/>
+            <br>
+            <span class="error" data-th-if="${fields.hasErrors('email')}" data-th-errors="*{email}"></span>
+        </p>
+        <br>
+        <p>
+            Age: 
+            <input type="text" data-th-field="*{age}"/>
+            <br>
+            <span class="error" data-th-if="${fields.hasErrors('age')}" data-th-errors="*{age}"></span>
+        </p>
+        <br>
+        <p>
+            Date of Birth: 
+            <input type="date" data-th-field="*{dateOfBirth}"/>
+            <br>
+            <span class="error" data-th-if="${fields.hasErrors('dateOfBirth')}" data-th-errors="*{dateOfBirth}"></span>
+        </p>
+        <br>
+            Hobbies: 
+            <input type="checkbox" value="Running" data-th-field="*{hobbies}"> Running</input>
+            <input type="checkbox" value="Swimming" data-th-field="*{hobbies}"> Swimming</input>
+            <input type="checkbox" value="Painting" data-th-field="*{hobbies}"> Painting</input>
+            <input type="checkbox" value="Clubbing" data-th-field="*{hobbies}"> Clubbing</input>
+            <span class="error" data-th-if="${fields.hasErrors('hobbies')}" data-th-errors="*{hobbies}"></span>
+        </p>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+  </body>
+</html>
